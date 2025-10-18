@@ -57,20 +57,13 @@ router.post('/', async(req, res) => {
         const newBook = await book.save();
          res.redirect(`/books`)
 
-    }catch{
-function saveCover(book, coverEncoded) {
-  if (coverEncoded == null) return
-  const cover = JSON.parse(coverEncoded)
-    if (cover != null && imageMimeTypes.includes(cover.type)) {
-        book.coverImage = new Buffer.from(cover.data, 'base64');
-        book.coverImageType = cover.type;
+    }catch(e){
+        console.error("Book saved error:"e);
+       renderNewPage(res, book, true);
     }
-}          
-    }
-            renderNewPage(res, book, true);
+           
 
-    }
-);
+    });
 
 async function renderNewPage(res, book, hasError = false) {
     try{ 
