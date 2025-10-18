@@ -13,12 +13,12 @@ router.get('/', async(req, res) => {
 
     res.render('authors/index', { 
         authors: authors,
-        searchOptions: req.query});
+     searchOptions: req.query});
     }catch{
         res.redirect('/');
         
     }
-    res.render('authors/index');
+    
 });
 
 
