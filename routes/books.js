@@ -58,7 +58,7 @@ router.post('/', async(req, res) => {
          res.redirect(`/books`)
 
     }catch(e){
-        console.error("Book saved error:"e);
+        console.error("Book saved error:",e);
        renderNewPage(res, book, true);
     }
            
